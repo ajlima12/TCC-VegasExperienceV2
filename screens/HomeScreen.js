@@ -5,6 +5,9 @@ import { Ionicons } from "@expo/vector-icons";
 import Header from "../components/Header";
 import Swiper from 'react-native-swiper';
 
+// Importação do Carousel
+import Carousel from "../components/Carousel";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -19,7 +22,7 @@ const HomeScreen = () => {
         color: "white",
       },
       headerStyle: {
-        backgroundColor: "#0D4BF2", //cor da NavBar
+        backgroundColor: "#147DEB", //cor da NavBar
         height: 110,
         borderBottomColor: "transparent",
         shadowColor: "transparent",
@@ -59,11 +62,12 @@ const HomeScreen = () => {
         </Swiper>
       </View>
       <Header />
+      
+      {/* Carousel incorporado */}
+      <Carousel navigation={navigation} />
     </ScrollView>
   );
 };
-
-export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -71,6 +75,7 @@ const styles = StyleSheet.create({
   },
   carouselContainer: {
     height: 300, // Altura do carousel
+   
   },
   slide: {
     flex: 1,
@@ -83,3 +88,5 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 });
+
+export default HomeScreen;

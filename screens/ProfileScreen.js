@@ -16,7 +16,7 @@ const ProfileScreen = () => {
         color: "white",
       },
       headerStyle: {
-        backgroundColor: "#0D4BF2",
+        backgroundColor: "#147DEB",
         height: 110,
         borderBottomColor: "transparent",
         shadowColor: "transparent",
