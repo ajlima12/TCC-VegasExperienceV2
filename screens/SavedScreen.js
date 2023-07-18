@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image,  } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -26,7 +26,7 @@ const SavedScreen = () => {
   }, []);
 
   const handleButtonPress = () => {
-    navigation.navigate('Home'); // Navega para a tela 'Home'
+    navigation.navigate('HotelScreen'); // Navega para a tela 'Home'
   };
 
   return (

@@ -11,69 +11,74 @@ import { NavigationContainer } from '@react-navigation/native';
 import SavedScreen from './screens/SavedScreen';
 import AudioScreen from './screens/AudioScreen';
 import Carousel from './components/Carousel'; // Importe o componente Carousel
+import HotelScreen from './screens/HotelScreen';
 
-const StackNavigator = () => {
-  const Tab = createBottomTabNavigator();
-  const Stack = createNativeStackNavigator();
 
-  function BottomTabs() {
-    return (
-      <Tab.Navigator
-        screenOptions={{
-          tabBarStyle: { backgroundColor: '#B4C1FC' },
-          tabBarLabelStyle: { color: 'white' },
-          tabBarActiveTintColor: 'white',
-          tabBarInactiveTintColor: 'black',
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+// Componente que representa a TabBar
+function TabBar() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: { backgroundColor: '#B4C1FC' },
+        tabBarLabelStyle: { color: 'white' },
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'black',
+        headerShown: false, 
+      }}
+    >
+      {/* Defina as abas aqui */}
+      <Tab.Screen
+        name="Home"
+        component={HomeScreenStack}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ focused }) => (focused ? <Ionicons name="airplane-sharp" size={24} color="#3865E0" /> : <Ionicons name="airplane-outline" size={24} color="#3865E0" />),
         }}
-      >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            tabBarLabel: 'Home',
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? <Ionicons name="airplane-sharp" size={24} color="#3865E0" /> : <Ionicons name="airplane-outline" size={24} color="#3865E0" />,
-          }}
-        />
+      />
+      <Tab.Screen
+        name="Roteiro"
+        component={SavedScreen}
+        options={{
+          tabBarLabel: 'Roteiro',
+          tabBarIcon: ({ focused }) => (focused ? <MaterialCommunityIcons name="bag-suitcase" size={24} color="#3865E0" /> : <MaterialCommunityIcons name="bag-suitcase-outline" size={24} color="#3865E0" />),
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Perfil',
+          tabBarIcon: ({ focused }) => (focused ? <Ionicons name="person" size={24} color="#3865E0" /> : <Ionicons name="person-outline" size={24} color="#3865E0" />),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
-        <Tab.Screen
-          name="Roteiro"
-          component={SavedScreen}
-          options={{
-            tabBarLabel: 'Roteiro',
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? <MaterialCommunityIcons name="bag-suitcase" size={24} color="#3865E0" /> : <MaterialCommunityIcons name="bag-suitcase-outline" size={24} color="#3865E0" />,
-          }}
-        />
+// Componente que representa o StackNavigator para a aba Home
+function HomeScreenStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="AudioScreen" component={AudioScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="HotelScreen" component={HotelScreen} options={{ headerShown: false }} />
 
-        <Tab.Screen
-          name="Perfil"
-          component={ProfileScreen}
-          options={{
-            tabBarLabel: 'Perfil',
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? <Ionicons name="person" size={24} color="#3865E0" /> : <Ionicons name="person-outline" size={24} color="#3865E0" />,
-          }}
-        />
-      </Tab.Navigator>
-    );
-  }
 
+    </Stack.Navigator>
+  );
+}
+
+function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="home" component={BottomTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="AudioScreen" component={AudioScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
+      <TabBar />
     </NavigationContainer>
   );
+}
 
-
-};
-
-export default StackNavigator;
+export default App;
 
 const styles = StyleSheet.create({});

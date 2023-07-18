@@ -12,7 +12,7 @@ const AudioScreen = () => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: true,
-      title: 'Audio Screen',
+      title: 'Conversação',
       headerTitleAlign: 'center',
       headerTitleStyle: {
         fontSize: 20,
@@ -78,6 +78,52 @@ const AudioScreen = () => {
     speak(audioText);
   };
 
+  const playAudio8 = () => {
+    const audioText = 'Can you bring the bill, please?  ';
+    speak(audioText);
+  };
+
+  const playAudio9 = () => {
+    const audioText = 'I would like to order, please   ';
+    speak(audioText);
+  };
+
+  const playAudio10 = () => {
+    const audioText = 'Breakfast...Lunch...Dinner  ';
+    speak(audioText);
+  };
+
+  const playAudio11 = () => {
+    const audioText = 'Waiter...Waitress  ';
+    speak(audioText);
+  };
+
+  const playAudio12 = () => {
+    const audioText = 'Gluten-free...Lactose intolerance   ';
+    speak(audioText);
+  }; 
+
+  const playAudio13 = () => {
+    const audioText = 'We have a reservation under...I have a reservation under   ';
+    speak(audioText);
+  }; 
+
+  const playAudio14 = () => {
+    const audioText = ' Is breakfast included?  ';
+    speak(audioText);
+  }; 
+
+  const playAudio15 = () => {
+    const audioText = ' We need extra towels, please. We’re in room  ';
+    speak(audioText);
+  }; 
+
+
+  const playAudio16 = () => {
+    const audioText = ' I’ll pay in cash...Vou pagar com o cartão ';
+    speak(audioText);
+  }; 
+  
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
@@ -142,6 +188,58 @@ const AudioScreen = () => {
           <TouchableOpacity style={styles.button} onPress={playAudio6}>
             <FontAwesome name="microphone" size={24} color="black" />
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>Can you bring the bill, please?  </Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>Pode trazer a conta, por favor?</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio8}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+         <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>I would like to order, please  </Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>Eu gostaria de fazer o pedido, por favor.</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio9}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>Breakfast/Lunch/Dinner  </Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>Café da manhã/Almoço/Jantar</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio10}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>Waiter/Waitress </Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>Garçom/Garçonete</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio11}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>Gluten-free/Lactose intolerance </Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>Sem glúten/Intolerância à lactose</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio12}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Hotel</Text>
+        </View>
+        <View style={styles.square}>
+          <Text style={[styles.audioText, { alignSelf: 'flex-start' }]}>Nós temos uma reserva em nome de .../Eu tenho uma reserva em nome de ...</Text>
+          <Text style={[styles.subText, { alignSelf: 'flex-start' }]}>We have a reservation under … /I have a reservation under …</Text>
+          <TouchableOpacity style={styles.button} onPress={playAudio13}>
+            <FontAwesome name="microphone" size={24} color="black" />
+          </TouchableOpacity>
+
         </View>
       </ScrollView>
     </View>
